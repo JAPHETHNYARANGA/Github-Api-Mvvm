@@ -17,6 +17,6 @@ class GithubViewModel : ViewModel() {
     }
 
     fun makeApiCall(){
-        val retroInstance = RetrofitInstance.getRetroInstance()
+        val retroInstance = RetrofitInstance.
     }
 }
