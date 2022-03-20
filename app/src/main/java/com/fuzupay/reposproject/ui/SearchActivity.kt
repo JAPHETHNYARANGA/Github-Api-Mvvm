@@ -1,19 +1,16 @@
 package com.fuzupay.reposproject.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
 import com.fuzupay.reposproject.R
-import com.fuzupay.reposproject.adapter.GitHubAdapter
 import com.fuzupay.reposproject.adapter.SearchAdapter
-import com.fuzupay.reposproject.viewmodel.MyViewModel
 import com.fuzupay.reposproject.viewmodel.SearchViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_search.*
@@ -60,8 +57,13 @@ class SearchActivity : AppCompatActivity() {
 
         btnSearch.setOnClickListener {
             searchViewModel.makeSearchApiCall(et_Search.text.toString())
+            et_Search.setText("")
         }
     }
+
+
+
+
 
 
 }

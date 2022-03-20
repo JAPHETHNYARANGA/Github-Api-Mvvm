@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.SearchActivity">
 
+
+
     <LinearLayout
         android:id="@+id/headerNavBar"
         android:layout_width="match_parent"
@@ -56,6 +58,16 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/toHome"
         android:layout_marginTop="10dp" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:outlineSpotShadowColor="@color/black"
+        android:visibility="invisible"/>
+
+
 
 
 
