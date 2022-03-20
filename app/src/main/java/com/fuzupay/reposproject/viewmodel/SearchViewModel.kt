@@ -10,31 +10,30 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SearchViewModel :ViewModel() {
+    lateinit var searchRecyclerListData: MutableLiveData<myGithubModel>
 
-    lateinit var recyclerListData: MutableLiveData<myGithubModel>
-
-    init {
-        recyclerListData = MutableLiveData()
+    init{
+        searchRecyclerListData = MutableLiveData()
     }
 
-    fun getRecyclerListDataObserver() : MutableLiveData<myGithubModel> {
-        return recyclerListData
+    fun getSearchRecyclerListDataObserver() :MutableLiveData<myGithubModel>{
+        return searchRecyclerListData
     }
-    fun makeApiCall(input:String){
-        val retroInstance = RetrofitInstance.getRetroInstance().create(RetrofitService::class.java)
-        val call = retroInstance.getDataFromApi(input)
+    fun makeSearchApiCall(input:String){
+        val searchRetroInstance = RetrofitInstance.getRetroInstance().create(RetrofitService::class.java)
+        val searchCall = searchRetroInstance.getDataFromApi(input)
 
-        call.enqueue(object: Callback<myGithubModel> {
+        searchCall.enqueue(object : Callback<myGithubModel>{
             override fun onResponse(call: Call<myGithubModel>, response: Response<myGithubModel>) {
                 if(response.isSuccessful){
-                    recyclerListData.postValue(response.body())
+                    searchRecyclerListData.postValue(response.body())
                 }else{
-                    recyclerListData.postValue(null)
+                    searchRecyclerListData.postValue(null)
                 }
             }
 
             override fun onFailure(call: Call<myGithubModel>, t: Throwable) {
-                recyclerListData.postValue(null)
+               searchRecyclerListData.postValue(null)
             }
         })
     }

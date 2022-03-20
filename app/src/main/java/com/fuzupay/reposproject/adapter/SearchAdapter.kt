@@ -9,51 +9,51 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fuzupay.reposproject.R
 import com.fuzupay.reposproject.models.Item
+import com.fuzupay.reposproject.models.myGithubModel
 import kotlinx.android.synthetic.main.individual_item_view.view.*
 
 class SearchAdapter  : RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
 
-    private var items = ArrayList<Item>()
+    var searchItems = ArrayList<Item>()
 
-    fun setListData(data:ArrayList<Item>){
-        this.items = data
+    fun searchSetListData(data : ArrayList<Item>){
+        this.searchItems = data
     }
-    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        private var title: TextView = itemView.tvTitle
-        private val desc: TextView = itemView.text1
-        private val item1: TextView = itemView.text2
-        private val item2: TextView = itemView.text3
-        private val image: ImageView = itemView.image
+
+    class ViewHolder(searchView:View):RecyclerView.ViewHolder(searchView){
+        private var searchtitle: TextView = itemView.tvTitle
+        private val searchdesc: TextView = itemView.text1
+        private val searchitem1: TextView = itemView.text2
+        private val searchitem2: TextView = itemView.text3
+        private val searchimage: ImageView = itemView.image
+
+        fun searchBind(data: Item){
+            searchtitle.text = data.name
+            searchdesc.text = data.description
+            searchitem1.text = data.created_at
+            searchitem2.text = data.comments_url
 
 
-        fun bind(data: Item){
-            title.text = data.name
-            desc.text = data.description
-            item1.text = data.created_at
-            item2.text = data.comments_url
-
-
-            val url = data.owner.avatar_url
-            Glide.with(image)
-                .load(url)
+            val Searchurl = data.owner.avatar_url
+            Glide.with(searchimage)
+                .load(Searchurl)
                 .circleCrop()
                 .placeholder(R.drawable.ic_launcher_background)
-                .into(image)
-        }
+                .into(searchimage)
 
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.individual_item_view,parent, false)
-        return ViewHolder(inflater)
+        val searchInflater = LayoutInflater.from(parent.context).inflate(R.layout.individual_item_view, parent, false)
+        return  ViewHolder(searchInflater)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
-
+        holder.searchBind(searchItems[position])
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return searchItems.size
     }
 }
