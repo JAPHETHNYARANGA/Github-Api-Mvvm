@@ -39,7 +39,7 @@ class GitHubAdapter : RecyclerView.Adapter<GitHubAdapter.ViewHolder>() {
             Glide.with(image)
                 .load(url)
                 .circleCrop()
-                .placeholder(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.imageplaceholder)
                 .into(image)
         }
 

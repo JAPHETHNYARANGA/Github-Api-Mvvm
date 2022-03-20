@@ -2,6 +2,7 @@ package com.fuzupay.reposproject.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -48,17 +49,21 @@ class SearchActivity : AppCompatActivity() {
 
         searchViewModel.getSearchRecyclerListDataObserver().observe(this, Observer{
             if(it != null){
+                searchProgress.setVisibility(View.INVISIBLE)
                 searchRecyclerViewAdapter.searchSetListData(it.items)
                 searchRecyclerViewAdapter.notifyDataSetChanged()
             }else{
                 Toast.makeText(this@SearchActivity,"Error in getting data", Toast.LENGTH_LONG).show()
+                searchProgress.setVisibility(View.INVISIBLE)
             }
         })
 
         btnSearch.setOnClickListener {
             searchViewModel.makeSearchApiCall(et_Search.text.toString())
             et_Search.setText("")
+            searchProgress.setVisibility(View.VISIBLE)
         }
+
     }
 
 
