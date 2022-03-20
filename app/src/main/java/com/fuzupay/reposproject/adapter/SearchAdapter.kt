@@ -9,11 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fuzupay.reposproject.R
 import com.fuzupay.reposproject.models.Item
-import com.fuzupay.reposproject.models.myGithubModel
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.individual_item_view.view.*
 
-class GitHubAdapter : RecyclerView.Adapter<GitHubAdapter.ViewHolder>() {
+class SearchAdapter  : RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
 
     private var items = ArrayList<Item>()
 
@@ -28,7 +26,7 @@ class GitHubAdapter : RecyclerView.Adapter<GitHubAdapter.ViewHolder>() {
         private val image: ImageView = itemView.image
 
 
-        fun bind(data:Item){
+        fun bind(data: Item){
             title.text = data.name
             desc.text = data.description
             item1.text = data.created_at

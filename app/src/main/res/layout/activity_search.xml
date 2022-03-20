@@ -16,21 +16,22 @@
         android:layout_marginStart="10dp"
         android:orientation="horizontal">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:hint="Search Something"
-            android:layout_weight="2.7"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/textInputLayout"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:hint="Search Repository or User"-->
+<!--            android:layout_weight="2.7"-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
             <EditText
                 android:id="@+id/et_Search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"  />
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSearch"
+            android:layout_marginLeft="15dp"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:textAllCaps="false"
@@ -40,13 +41,14 @@
 
     <Button
         android:id="@+id/toHome"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/headerNavBar"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:textAllCaps="false"
-        android:text="To Home" />
+        android:text="Click to go back To Home"
+        android:textAllCaps="false" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

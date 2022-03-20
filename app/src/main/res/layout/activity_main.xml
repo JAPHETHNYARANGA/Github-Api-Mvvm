@@ -4,15 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:layout_margin="10dp"
     tools:context=".ui.MainActivity">
-    <Button
-        android:id="@+id/toSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="To Search"
-        android:textAllCaps="false"/>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linear1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+        <Button
+            android:id="@+id/toSearch"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Click To Search for more Repos"
+            android:textAllCaps="false"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            style="@style/TextAppearance.AppCompat.Medium"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:text="Total Static Results : " />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:id="@+id/totalResults"-->
+<!--            style="@style/TextAppearance.AppCompat.Medium"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:text="36 " />-->
+
+<!--    </LinearLayout>-->
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView"
