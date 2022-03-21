@@ -19,8 +19,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
 import com.fuzupay.reposproject.R
 import com.fuzupay.reposproject.adapter.GitHubAdapter
 import com.fuzupay.reposproject.viewmodel.MyViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_search.*
 
@@ -60,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                 recyclerViewAdapter.setListData(it.items)
                 recyclerViewAdapter.notifyDataSetChanged()
             }else{
-                Toast.makeText(this@MainActivity,"Error getting data fromApi", Toast.LENGTH_LONG).show()
+                Snackbar.make(swipeRefresh, "Error getting data fromApi!", Snackbar.LENGTH_SHORT).show()
             }
 
         })
@@ -105,6 +107,7 @@ class MainActivity : AppCompatActivity() {
     private fun signOut() {
         Firebase.auth.signOut()
         startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+        Toast.makeText(this@MainActivity, "Sign Out successful!", Toast.LENGTH_SHORT).show()
         finish()
     }
 

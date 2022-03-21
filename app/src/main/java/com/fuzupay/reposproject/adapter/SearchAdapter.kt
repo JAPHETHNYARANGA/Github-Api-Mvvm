@@ -31,7 +31,7 @@ class SearchAdapter  : RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
             searchtitle.text = data.name
             searchdesc.text = data.description
             searchitem1.text = data.created_at
-            searchitem2.text = data.comments_url
+            searchitem2.text = data.full_name
 
 
             val Searchurl = data.owner.avatar_url

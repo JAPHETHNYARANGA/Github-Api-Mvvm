@@ -103,6 +103,7 @@ class SearchActivity : AppCompatActivity() {
     private fun signOut() {
         Firebase.auth.signOut()
         startActivity(Intent(this@SearchActivity, LoginActivity::class.java))
+        Toast.makeText(this@SearchActivity, "Sign Out successful!", Toast.LENGTH_SHORT).show()
         finish()
     }
 

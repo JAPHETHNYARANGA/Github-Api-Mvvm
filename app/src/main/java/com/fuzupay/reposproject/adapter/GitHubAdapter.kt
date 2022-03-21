@@ -32,7 +32,7 @@ class GitHubAdapter : RecyclerView.Adapter<GitHubAdapter.ViewHolder>() {
             title.text = data.name
             desc.text = data.description
             item1.text = data.created_at
-            item2.text = data.comments_url
+            item2.text = data.full_name
 
 
             val url = data.owner.avatar_url

@@ -4,6 +4,8 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fuzupay.reposproject.R
@@ -14,6 +16,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
@@ -82,10 +85,12 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     finish()
                     Toast.makeText(this@LoginActivity,"Login successful", Toast.LENGTH_SHORT).show()
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(this@LoginActivity,"Login failed", Toast.LENGTH_SHORT).show()
+
+                    Snackbar.make(loginLayout, "Login Failed", Snackbar.LENGTH_LONG).show()
                 }
             }
     }
@@ -98,6 +103,7 @@ class LoginActivity : AppCompatActivity() {
         if (currentUser != null){
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()
+
         }
 
     }
