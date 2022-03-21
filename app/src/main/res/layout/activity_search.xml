@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SearchActivity">
+    tools:context=".ui.SearchActivity"
+    tools:menu="@menu/nav_menu">
 
 
 
@@ -41,22 +42,12 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/toHome"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/headerNavBar"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Click to go back To Home"
-        android:textAllCaps="false" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerViewSearch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toHome"
+        android:layout_below="@+id/headerNavBar"
         android:layout_marginTop="10dp" />
 
     <ProgressBar
@@ -65,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:outlineSpotShadowColor="@color/black"
+        android:backgroundTint="@color/black"
         android:visibility="invisible"/>
 
 

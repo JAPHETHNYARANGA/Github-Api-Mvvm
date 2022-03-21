@@ -80,6 +80,8 @@ class LoginActivity : AppCompatActivity() {
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    finish()
+                    Toast.makeText(this@LoginActivity,"Login successful", Toast.LENGTH_SHORT).show()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
@@ -93,7 +95,11 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        if (currentUser != null){
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            finish()
+        }
+
     }
 
 
