@@ -3,6 +3,7 @@ package com.fuzupay.reposproject.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +15,7 @@ import com.fuzupay.reposproject.R
 import com.fuzupay.reposproject.adapter.GitHubAdapter
 import com.fuzupay.reposproject.viewmodel.MyViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_search.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var recyclerViewAdapter : GitHubAdapter
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         val viewModel = ViewModelProviders.of(this).get(MyViewModel::class.java)
         viewModel.getRecyclerListDataObserver().observe(this, Observer{
             if(it != null){
+                mainProgress.setVisibility(View.INVISIBLE)
                 recyclerViewAdapter.setListData(it.items)
                 recyclerViewAdapter.notifyDataSetChanged()
             }else{
